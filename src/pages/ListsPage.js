@@ -5,6 +5,7 @@ import {
   SideMenu,
   Header,
   ListCard,
+  Footer,
 } from '../components/index';
 
 function ListsPage() {
@@ -19,6 +20,7 @@ function ListsPage() {
       <Header />
       <SideMenu />
       <ListCard users />
+      <Footer />
     </main>
   )
 }
