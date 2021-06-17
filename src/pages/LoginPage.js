@@ -29,7 +29,7 @@ function LoginPage () {
     </main>
   );
   } else {
-    return <Redirect to="/Listas" />
+    return <Redirect to="/users" />
   }
 }
 

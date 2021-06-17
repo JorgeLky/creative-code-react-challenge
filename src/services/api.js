@@ -4,4 +4,8 @@ const api = axios.create({
   baseURL: "https://api.github.com"
 });
 
-export default api;
+const userDetails = axios.create({
+  baseURL: "https://api.github.com/users"
+})
+
+export { api, userDetails };

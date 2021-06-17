@@ -5,6 +5,7 @@ function GlobalProvider({ children }) {
   const [users, setUsers] = useState([]);
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState('');
+  const [user, setUser] = useState({})
 
   const nextPage = () => {
     if ((users.length / page) === 10) {
@@ -25,6 +26,7 @@ function GlobalProvider({ children }) {
 
 
   const context = {
+    user,
     search,
     page,
     users,
@@ -32,7 +34,8 @@ function GlobalProvider({ children }) {
     nextPage,
     previousPage,
     setSearch,
-    setPage
+    setPage,
+    setUser,
   }
 
   return(
