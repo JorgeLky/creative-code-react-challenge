@@ -12,10 +12,14 @@ function ListsPage() {
   const {
     setUsers,
     search,
+    setPage,
   } = useContext(GlobalContext);
 
   useEffect(() => {
-    api.get("/users").then((response) => setUsers(response.data.filter((users) => users.login.includes(search))));
+    api.get("/users")
+      .then((response) =>
+        setUsers(response.data.filter((users) =>
+          users.login.includes(search))));
   }, [search]);
 
   return(

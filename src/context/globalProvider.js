@@ -32,6 +32,7 @@ function GlobalProvider({ children }) {
     nextPage,
     previousPage,
     setSearch,
+    setPage
   }
 
   return(

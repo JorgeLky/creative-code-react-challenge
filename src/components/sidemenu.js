@@ -2,14 +2,20 @@ import React, { useContext } from 'react';
 import GlobalContext from '../context/globalContext';
 
 function SideMenu() {
-  const { setSearch } = useContext(GlobalContext);
+  const {
+    setSearch,
+    setPage,
+  } = useContext(GlobalContext);
 
   return(
     <section>
       <input
         type="text"
         placeholder="Pesquise pelo login"
-        onChange={ (e) => setSearch(e.target.value) }
+        onChange={ (e) =>
+          setSearch(e.target.value)
+        }
+        onClick={ () => setPage(1) }
       />
       <nav>
         Nav1
