@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from 'react';
-import api from '../services/api';
+import { api } from '../services/api';
 import GlobalContext from '../context/globalContext';
 import {
   SideMenu,
@@ -12,7 +12,6 @@ function ListsPage() {
   const {
     setUsers,
     search,
-    setPage,
   } = useContext(GlobalContext);
 
   useEffect(() => {
