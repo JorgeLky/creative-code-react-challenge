@@ -9,11 +9,14 @@ import {
 } from '../components/index';
 
 function ListsPage() {
-  const { setUsers } = useContext(GlobalContext);
+  const {
+    setUsers,
+    search,
+  } = useContext(GlobalContext);
 
   useEffect(() => {
-    api.get("/users").then((response) => setUsers(response.data));
-  }, []);
+    api.get("/users").then((response) => setUsers(response.data.filter((users) => users.login.includes(search))));
+  }, [search]);
 
   return(
     <main>

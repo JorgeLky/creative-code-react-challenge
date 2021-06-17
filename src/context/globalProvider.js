@@ -4,6 +4,7 @@ import GlobalContext from './globalContext';
 function GlobalProvider({ children }) {
   const [users, setUsers] = useState([]);
   const [page, setPage] = useState(1);
+  const [search, setSearch] = useState('');
 
   const nextPage = () => {
     if ((users.length / page) === 10) {
@@ -21,12 +22,16 @@ function GlobalProvider({ children }) {
     }
   }
 
+
+
   const context = {
+    search,
     page,
     users,
     setUsers,
     nextPage,
     previousPage,
+    setSearch,
   }
 
   return(

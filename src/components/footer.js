@@ -3,7 +3,6 @@ import GlobalContext from '../context/globalContext';
 
 function Footer() {
   const {
-    users,
     page,
     nextPage,
     previousPage,

@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import GlobalContext from '../context/globalContext';
 
-function sideMenu() {
+function SideMenu() {
+  const { setSearch } = useContext(GlobalContext);
+
   return(
     <section>
+      <input
+        type="text"
+        placeholder="Pesquise pelo login"
+        onChange={ (e) => setSearch(e.target.value) }
+      />
       <nav>
         Nav1
       </nav>
@@ -16,4 +24,4 @@ function sideMenu() {
   )
 }
 
-export default sideMenu;
+export default SideMenu;
