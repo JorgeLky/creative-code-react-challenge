@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useContext } from 'react';
 import api from '../services/api';
+import GlobalContext from '../context/globalContext';
 import {
   SideMenu,
   Header,
@@ -7,7 +8,7 @@ import {
 } from '../components/index';
 
 function ListsPage() {
-  const [users, setUsers] = useState([]);
+  const { setUsers } = useContext(GlobalContext);
 
   useEffect(() => {
     api.get("/users").then((response) => setUsers(response.data));
@@ -17,7 +18,7 @@ function ListsPage() {
     <main>
       <Header />
       <SideMenu />
-      <ListCard users={users} />
+      <ListCard users />
     </main>
   )
 }

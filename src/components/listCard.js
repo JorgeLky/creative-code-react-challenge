@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import GlobalContext from '../context/globalContext';
 
-function ListCard(props) {
-  const users = props.users;
-
-
+function ListCard() {
+  const { users } = useContext(GlobalContext);
 
   return(
     <section>
