@@ -6,6 +6,7 @@ function GlobalProvider({ children }) {
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState('');
   const [user, setUser] = useState({})
+  const [menu, setOpenMenu] = useState(false);
 
   const nextPage = () => {
     if ((users.length / page) === 10) {
@@ -23,9 +24,12 @@ function GlobalProvider({ children }) {
     }
   }
 
-
+  const handleOpen = () => {
+    setOpenMenu(!menu)
+  }
 
   const context = {
+    menu,
     user,
     search,
     page,
@@ -36,6 +40,7 @@ function GlobalProvider({ children }) {
     setSearch,
     setPage,
     setUser,
+    handleOpen,
   }
 
   return(
