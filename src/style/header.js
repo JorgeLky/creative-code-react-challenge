@@ -11,6 +11,8 @@ const HeaderBar = styled.section`
 `
 const MenuButton = styled.button`
   margin-left: 1%;
+  background-color: #FFC0CB;
+  border: none;
 `
 
 const NameField = styled.h2`

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import GlobalContext from '../context/globalContext';
 import {
@@ -29,7 +29,7 @@ function ListCard() {
               </LoginCard>
             </Link>
           )
-        }
+        } else { return null }
       })}
     </CardContainer>
   );
