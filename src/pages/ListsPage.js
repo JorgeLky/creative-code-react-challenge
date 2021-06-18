@@ -1,5 +1,6 @@
 import React, { useEffect, useContext } from 'react';
 import { api } from '../services/api';
+import { Redirect } from 'react-router-dom';
 import GlobalContext from '../context/globalContext';
 import { ListsContainer } from '../style/sidemenu';
 import {
@@ -13,6 +14,7 @@ function ListsPage() {
   const {
     setUsers,
     search,
+    login,
   } = useContext(GlobalContext);
 
   useEffect(() => {
@@ -23,6 +25,7 @@ function ListsPage() {
   }, [search]);
 
   return(
+    login !== true ? <Redirect to="/login" /> : 
     <ListsContainer>
       <Header />
       <SideMenu />

@@ -1,5 +1,9 @@
-import React, { useState } from 'react';
+import React, {
+  useState,
+  useContext
+} from 'react';
 import { Redirect } from 'react-router-dom';
+import GlobalContext from '../context/globalContext';
 import gitHubIcon from '../icons/GitHubIcon.svg'
 import {
   Container,
@@ -13,15 +17,19 @@ require('dotenv').config();
 function LoginPage () {
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
-  const [login, setLogin] = useState();
+  const [error, setError] = useState()
+  const {
+    login,  
+    confirmLogin,
+  } = useContext(GlobalContext)
 
   const validateLogin = (user, password) => {
     const userName = (user === process.env.REACT_APP_ADMIN);
     const key = (password === process.env.REACT_APP_PASSWORD);
     if (userName === true && key === true) {
-      setLogin(true);
+      confirmLogin()
     } else {
-      setLogin('informações incorretas');
+      setError('informações incorretas');
     }
   }
   
@@ -43,7 +51,7 @@ function LoginPage () {
         <strong> Entrar </strong> 
       </LoginButton>
       <ErrorBox>
-        <strong>{ login }</strong>
+        <strong>{ error }</strong>
       </ErrorBox>
     </Container>
   );
