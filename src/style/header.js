@@ -10,10 +10,11 @@ const HeaderBar = styled.section`
   margin-bottom: 1%;
 `
 const MenuButton = styled.button`
+  margin-left: 1%;
 `
 
 const NameField = styled.h2`
-  margin-left: 3%;
+  margin-right: 1%;
 `
 
 const IconMenu = styled.img`

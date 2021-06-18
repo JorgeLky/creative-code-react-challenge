@@ -2,7 +2,8 @@ import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import GlobalContext from '../context/globalContext';
 import {
-  CardContainer
+  CardContainer,
+  LoginCard
 } from '../style/listCard';
 
 function ListCard() {
@@ -13,17 +14,19 @@ function ListCard() {
   } = useContext(GlobalContext);
   return (
     <CardContainer>
+      <strong> Users </strong>
       {users.map((user, index) => {
         if (index <= page * 10 && index >= (page - 1) * 10) {
           return(
             <Link
+              style={{textDecoration: 'none'}}
               to={`/user/${ user.login }`}
               key={user.login}
               onClick={() => setUser(user.login)}
             >
-              <div>
+              <LoginCard>
                 { user.login }
-              </div>
+              </LoginCard>
             </Link>
           )
         }

@@ -1,5 +1,9 @@
 import React, { useContext } from 'react';
 import GlobalContext from '../context/globalContext';
+import {
+  FooterListPage,
+  PageControlButtons,
+} from '../style/listCard';
 
 function Footer() {
   const {
@@ -9,11 +13,11 @@ function Footer() {
   } = useContext(GlobalContext);
 
   return(
-    <footer>
-      <button onClick={ () => previousPage() }> Página anterior </button>
+    <FooterListPage>
+      <PageControlButtons onClick={ () => previousPage() }> Página anterior </PageControlButtons>
       { page }
-      <button onClick={ () => nextPage() }> Próxima página </button>
-    </footer>
+      <PageControlButtons onClick={ () => nextPage() }> Próxima página </PageControlButtons>
+    </FooterListPage>
   )
 
 }
