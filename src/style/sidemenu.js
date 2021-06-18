@@ -12,6 +12,7 @@ const SideMenuContainer = styled.section`
   align-items: center;
   flex-direction: column;
   border-radius: 5px;
+  transition: all .5s;
   &.open {
     transform: translate(0)
   }

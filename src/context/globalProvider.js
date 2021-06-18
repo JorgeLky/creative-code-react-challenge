@@ -7,6 +7,7 @@ function GlobalProvider({ children }) {
   const [search, setSearch] = useState('');
   const [user, setUser] = useState({})
   const [menu, setOpenMenu] = useState(false);
+  const [login, setLogin] = useState(false);
 
   const nextPage = () => {
     if ((users.length / page) === 10) {
@@ -28,7 +29,12 @@ function GlobalProvider({ children }) {
     setOpenMenu(!menu)
   }
 
+  const confirmLogin = () => {
+    setLogin(!login);
+  }
+
   const context = {
+    login,
     menu,
     user,
     search,
@@ -41,6 +47,7 @@ function GlobalProvider({ children }) {
     setPage,
     setUser,
     handleOpen,
+    confirmLogin,
   }
 
   return(
