@@ -1,6 +1,9 @@
 import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import GlobalContext from '../context/globalContext';
+import {
+  CardContainer
+} from '../style/listCard';
 
 function ListCard() {
   const {
@@ -9,7 +12,7 @@ function ListCard() {
     setUser,
   } = useContext(GlobalContext);
   return (
-    <section>
+    <CardContainer>
       {users.map((user, index) => {
         if (index <= page * 10 && index >= (page - 1) * 10) {
           return(
@@ -25,7 +28,7 @@ function ListCard() {
           )
         }
       })}
-    </section>
+    </CardContainer>
   );
 }
 

@@ -1,15 +1,21 @@
 import React, { useContext } from 'react';
 import GlobalContext from '../context/globalContext';
+import {
+  SideMenuContainer,
+  TextBox,
+  NavBarOptions,
+} from '../style/sidemenu';
 
 function SideMenu() {
   const {
     setSearch,
     setPage,
+    menu,
   } = useContext(GlobalContext);
 
   return(
-    <section>
-      <input
+    <SideMenuContainer className={ menu !== true ? '' : 'open' }>
+      <TextBox
         type="text"
         placeholder="Pesquise pelo login"
         onChange={ (e) =>
@@ -17,16 +23,16 @@ function SideMenu() {
         }
         onClick={ () => setPage(1) }
       />
-      <nav>
+      <NavBarOptions>
         Nav1
-      </nav>
-      <nav>
+      </NavBarOptions>
+      <NavBarOptions>
         Nav2
-      </nav>
-      <nav>
+      </NavBarOptions>
+      <NavBarOptions>
         Nav3
-      </nav>
-    </section>
+      </NavBarOptions>
+    </SideMenuContainer>
   )
 }
 

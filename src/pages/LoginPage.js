@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
+import gitHubIcon from '../icons/GitHubIcon.svg'
+import {
+  Container,
+  TextBox,
+  LoginButton,
+  ErrorBox,
+  GitHubIcon,
+} from '../style/login';
 require('dotenv').config();
 
 function LoginPage () {
@@ -19,14 +27,25 @@ function LoginPage () {
   
   if(login !== true) {
     return (
-    <main>
-      <input type='text' onChange={ (e) => setUser(e.target.value) }/>
-      <input type='password' onChange={ (e) => setPassword(e.target.value) }/>
-      <button onClick={ () => validateLogin(user, password) }> Entrar </button>
-      <div className='error'>
-        { login }
-      </div>
-    </main>
+    <Container>
+      <GitHubIcon src={gitHubIcon} alt="Mascote github" />
+      <TextBox
+        type='text'
+        onChange={ (e) => setUser(e.target.value) }
+        placeholder="User Name"
+      />
+      <TextBox
+        type='password'
+        onChange={ (e) => setPassword(e.target.value) }
+        placeholder="Password"
+      />
+      <LoginButton onClick={ () => validateLogin(user, password) }>
+        <strong> Entrar </strong> 
+      </LoginButton>
+      <ErrorBox>
+        <strong>{ login }</strong>
+      </ErrorBox>
+    </Container>
   );
   } else {
     return <Redirect to="/users" />

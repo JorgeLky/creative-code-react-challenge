@@ -1,6 +1,7 @@
 import React, { useEffect, useContext } from 'react';
 import { api } from '../services/api';
 import GlobalContext from '../context/globalContext';
+import { ListsContainer } from '../style/sidemenu';
 import {
   SideMenu,
   Header,
@@ -22,12 +23,12 @@ function ListsPage() {
   }, [search]);
 
   return(
-    <main>
+    <ListsContainer>
       <Header />
       <SideMenu />
       <ListCard users />
       <Footer />
-    </main>
+    </ListsContainer>
   )
 }
 
